@@ -8,13 +8,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
- 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+            .copyWith(secondary: Colors.deepOrange),
+      fontFamily: 'Lato'      
       ),
       home: ProductsOverviewScreen(),
       debugShowCheckedModeBanner: false,
