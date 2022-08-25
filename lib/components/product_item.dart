@@ -4,6 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:shop/models/product.dart';
 import 'package:shop/screens/product_detail_screen.dart';
+import 'package:shop/utils/app_routes.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -41,13 +42,13 @@ class ProductItem extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (ctx) => ProductDetailScreen(product: product),
-            )
-          );
-        },
+            Navigator.of(context).pushNamed(
+              AppRoute.PRODUCT_DETAIL,
+              arguments: product,
+            );
+          },
+        ),
       ),
-    ),
-  );
- }
+    );
+  }
 }
