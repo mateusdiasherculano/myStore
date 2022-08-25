@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:shop/models/product.dart';
+import 'package:shop/screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -34,11 +35,19 @@ class ProductItem extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           ),
         ),
-        child: Image.network(
-          product.imageUrl,
-          fit: BoxFit.cover,
-        ),
+        child: GestureDetector(
+          child: Image.network(
+            product.imageUrl,
+            fit: BoxFit.cover,
+          ),
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (ctx) => ProductDetailScreen(product: product),
+            )
+          );
+        },
       ),
-    );
-  }
+    ),
+  );
+ }
 }
