@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               .copyWith(secondary: Colors.deepOrange),
         fontFamily: 'Lato'      
         ),
-        home: ProductsOverviewScreen(),
+        home: const ProductsOverviewScreen(),
         routes: {
           AppRoute.PRODUCT_DETAIL: (ctx) => ProductDetailScreen() 
         },
