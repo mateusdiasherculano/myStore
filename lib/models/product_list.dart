@@ -6,27 +6,16 @@ class ProductList with ChangeNotifier {
   final List<Product> _items = dummyProducts;
 
   List<Product> get items => [..._items];
+  
   List<Product> get favoriteItems =>
       _items.where((prod) => prod.isFavorite).toList();
+
+   int get itemsCount {
+    return _items.length;
+  }
 
   void addProduct(Product product) {
     _items.add(product);
     notifyListeners();
   }
 }
-
-//bool _showFavoriteOnly = false;
-//void showFavoriteOnly() {
-    //_showFavoriteOnly = true;
-    //notifyListeners();
- // }
-
-//void showAll() {
-    //_showFavoriteOnly = false;
- // }
-
-//void addProduct(Product product) {
-    //_items.add(product);
-   // notifyListeners();
- // }
-//}

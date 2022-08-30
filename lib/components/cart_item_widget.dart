@@ -21,20 +21,46 @@ class CartItemWidget extends StatelessWidget {
       key: ValueKey(cartItem.id),
       direction: DismissDirection.endToStart,
       background: Container(
-          color: Theme.of(context).errorColor,
-          alignment: Alignment.centerRight,
-          padding: const EdgeInsets.only(right: 20),
-          margin: const EdgeInsets.symmetric(
-            vertical: 4,
-            horizontal: 15,
-          ),
-          child: const Icon(
-            Icons.delete,
-            color: Colors.white,
-            size: 30,
-          )),
+        color: Theme.of(context).errorColor,
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 20),
+        margin: const EdgeInsets.symmetric(
+          vertical: 4,
+          horizontal: 15,
+        ),
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
+      confirmDismiss: (_) {
+        return showDialog(
+            context: context,
+            builder: (ctx) =>  AlertDialog(
+                  title: const Text('Tem Certeza?'),
+                  content:const Text('Quer remover o item do carrinho?'),
+                  actions: [
+                    TextButton(
+                      child:const Text('SIM'),
+                      onPressed: () {
+                        Navigator.of(ctx).pop(true);
+                      },
+                    ),
+                    TextButton(
+                      child:const Text('NÃO'),
+                      onPressed: () {
+                        Navigator.of(ctx).pop(false);
+                      },
+                    )
+                  ],
+                ));
+      },
       onDismissed: (_) {
-        Provider.of<Cart>(context, listen: false).removeItem(cartItem.productId);
+        Provider.of<Cart>(
+          context,
+          listen: false,
+        ).removeItem(cartItem.productId);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(
