@@ -123,7 +123,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 },
               ),
               TextFormField(
-                initialValue: _formData['Preço']?.toString(),
+                initialValue: _formData['price']?.toString(),
                 decoration: const InputDecoration(labelText: 'Preço'),
                 textInputAction: TextInputAction.next,
                 focusNode: _priceFocus,
@@ -148,7 +148,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 },
               ),
               TextFormField(
-                initialValue: _formData['Description']?.toString(),
+                initialValue: _formData['description']?.toString(),
                 decoration: const InputDecoration(labelText: 'Descrição'),
                 focusNode: _descriptionFocus,
                 keyboardType: TextInputType.multiline,
