@@ -1,7 +1,4 @@
-import 'dart:ffi';
-import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -126,6 +123,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 key: _formKey,
                 child: ListView(
                   children: [
+                   
                     TextFormField(
                       initialValue: _formData['name']?.toString(),
                       decoration: const InputDecoration(labelText: 'Nome'),
@@ -136,27 +134,23 @@ class _ProductFormPageState extends State<ProductFormPage> {
                       onSaved: (name) => _formData['name'] = name ?? '',
                       validator: (_name) {
                         final name = _name ?? '';
-
+                    
                         if (name.trim().isEmpty) {
                           return 'Nome é obrigatório';
                         }
-
+                    
                         if (name.trim().length < 3) {
                           return 'Nome precisa no mínimo de 3 letras.';
                         }
-
+                    
                         return null;
                       },
                     ),
-                    TextFormField(
+                     TextFormField(
                       initialValue: _formData['price']?.toString(),
                       decoration: const InputDecoration(labelText: 'Preço'),
                       textInputAction: TextInputAction.next,
                       focusNode: _priceFocus,
-                      keyboardType: const TextInputType.numberWithOptions(
-                        decimal: true,
-                        signed: true,
-                      ),
                       onFieldSubmitted: (_) {
                         FocusScope.of(context).requestFocus(_descriptionFocus);
                       },
