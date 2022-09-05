@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -74,18 +73,18 @@ class _ProductFormPageState extends State<ProductFormPage> {
 
     _formKey.currentState?.save();
 
-    setState(() =>_isLoading = true);
-    
-   try {
-     await Provider.of<ProductList>(
-      context,
-      listen: false,
-    ).saveProduct(_formData);
-   } catch (erro) {
-     await showDialog<void>(
+    setState(() => _isLoading = true);
+
+    try {
+      await Provider.of<ProductList>(
+        context,
+        listen: false,
+      ).saveProduct(_formData);
+    } catch (erro) {
+      await showDialog<void>(
         context: context,
         builder: (context) => AlertDialog(
-          title:  const Text('Ocorreu um erro!'),
+          title: const Text('Ocorreu um erro!'),
           content: const Text('Ocorreu um erro para salvar o produto.'),
           actions: [
             TextButton(
@@ -95,10 +94,10 @@ class _ProductFormPageState extends State<ProductFormPage> {
           ],
         ),
       );
-   } finally {
-     setState(() => _isLoading = false);
+    } finally {
+      setState(() => _isLoading = false);
       Navigator.of(context).pop();
-   }
+    }
   }
 
   @override
@@ -123,7 +122,6 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 key: _formKey,
                 child: ListView(
                   children: [
-                   
                     TextFormField(
                       initialValue: _formData['name']?.toString(),
                       decoration: const InputDecoration(labelText: 'Nome'),
@@ -134,19 +132,19 @@ class _ProductFormPageState extends State<ProductFormPage> {
                       onSaved: (name) => _formData['name'] = name ?? '',
                       validator: (_name) {
                         final name = _name ?? '';
-                    
+
                         if (name.trim().isEmpty) {
                           return 'Nome é obrigatório';
                         }
-                    
+
                         if (name.trim().length < 3) {
                           return 'Nome precisa no mínimo de 3 letras.';
                         }
-                    
+
                         return null;
                       },
                     ),
-                     TextFormField(
+                    TextFormField(
                       initialValue: _formData['price']?.toString(),
                       decoration: const InputDecoration(labelText: 'Preço'),
                       textInputAction: TextInputAction.next,
