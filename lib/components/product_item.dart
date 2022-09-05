@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/exceptions/http_exception.dart';
 import 'package:shop/models/product_list.dart';
 import '../models/product.dart';
 import '../utils/app_routes.dart';
@@ -13,6 +14,7 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final msg = ScaffoldMessenger.of(context);
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: NetworkImage(product.imageUrl),
@@ -44,23 +46,30 @@ class ProductItem extends StatelessWidget {
                       actions: [
                         TextButton(
                           child: const Text('Sim'),
-                          onPressed: () {
-                            Provider.of<ProductList>(
-                              context,
-                              listen: false,
-                            ).removeProduct(product);
-                            Navigator.of(context).pop();
-                          },
-                          
+                          onPressed: () => Navigator.of(context).pop(true),
                         ),
                         TextButton(
                           child: const Text('Não'),
-                          onPressed: () => Navigator.of(context).pop(),
-                          
+                          onPressed: () => Navigator.of(context).pop(false),
                         )
                       ],
                     ),
-                  );
+                  ).then((value) async {
+                    if (value ?? false) {
+                      try {
+                        await Provider.of<ProductList>(
+                          context,
+                          listen: false,
+                        ).removeProduct(product);
+                      } on HttpException catch (error) {
+                        msg.showSnackBar(
+                          SnackBar(
+                            content: Text(error.toString()),
+                          ),
+                        );
+                      }
+                    }
+                  });
                 },
               ),
             ],
