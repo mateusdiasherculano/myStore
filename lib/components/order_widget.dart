@@ -43,7 +43,7 @@ class _OrderWidgetState extends State<OrderWidget> {
                 horizontal: 15,
                 vertical: 4,
               ),
-              height: (widget.order.products.length * 25.0) + 10,
+              height: (widget.order.products.length * 25.0) + 15,
               child: ListView(
                 children: widget.order.products.map(
                   (product) {
