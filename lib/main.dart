@@ -33,19 +33,17 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData(
             colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
                 .copyWith(secondary: Colors.deepOrange),
             fontFamily: 'Lato'),
-        
         routes: {
-          AppRoute.HOME:(context) => const ProductsOverviewScreen(),
-          AppRoute.PRODUCT_DETAIL: (ctx) => ProductDetailScreen(),
-          AppRoute.CART:(context) => const CartScreen(),
-          AppRoute.ORDERS:(context) => const OrdersScreen(),
-          AppRoute.PRODUCTS:(context) => const ProductsScreen(),
-          AppRoute.PRODUCTS_FORM:(context) => const ProductFormPage(),
+          AppRoute.HOME: (context) => const ProductsOverviewScreen(),
+          AppRoute.PRODUCT_DETAIL: (ctx) => const ProductDetailScreen(),
+          AppRoute.CART: (context) => const CartScreen(),
+          AppRoute.ORDERS: (context) => const OrdersScreen(),
+          AppRoute.PRODUCTS: (context) => const ProductsScreen(),
+          AppRoute.PRODUCTS_FORM: (context) => const ProductFormPage(),
         },
         debugShowCheckedModeBanner: false,
       ),
