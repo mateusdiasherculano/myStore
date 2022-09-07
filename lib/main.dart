@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/models/cart.dart';
 import 'package:shop/models/order_list.dart';
 import 'package:shop/models/product_list.dart';
+import 'package:shop/screens/auth_screen.dart';
 import 'package:shop/screens/cart_screen.dart';
 import 'package:shop/screens/orders_screen.dart';
 import 'package:shop/screens/product_detail_screen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
                 .copyWith(secondary: Colors.deepOrange),
             fontFamily: 'Lato'),
         routes: {
+          AppRoute.AUTH:(context) => const AuthScreen(),
           AppRoute.HOME: (context) => const ProductsOverviewScreen(),
           AppRoute.PRODUCT_DETAIL: (ctx) => const ProductDetailScreen(),
           AppRoute.CART: (context) => const CartScreen(),
