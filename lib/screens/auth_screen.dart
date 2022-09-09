@@ -33,6 +33,9 @@ class AuthScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
+                    margin: const EdgeInsets.only(
+                      bottom: 20,
+                    ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 60,
                       vertical: 10,
@@ -60,7 +63,7 @@ class AuthScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  AuthForm(),
+                  const AuthForm(),
                 ],
               ),
             ),
