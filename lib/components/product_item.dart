@@ -29,7 +29,7 @@ class ProductItem extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary,
                 onPressed: () {
                   Navigator.of(context).pushNamed(
-                    AppRoute.PRODUCTS_FORM,
+                    AppRoutes.productForm,
                     arguments: product,
                   );
                 },

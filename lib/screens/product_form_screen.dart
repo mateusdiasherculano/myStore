@@ -5,14 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:shop/models/product.dart';
 import 'package:shop/models/product_list.dart';
 
-class ProductFormPage extends StatefulWidget {
-  const ProductFormPage({Key? key}) : super(key: key);
+class ProductFormScreen extends StatefulWidget {
+  const ProductFormScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProductFormPage> createState() => _ProductFormPageState();
+  State<ProductFormScreen> createState() => _ProductFormScreenState();
 }
 
-class _ProductFormPageState extends State<ProductFormPage> {
+class _ProductFormScreenState extends State<ProductFormScreen> {
   final _priceFocus = FocusNode();
   final _descriptionFocus = FocusNode();
 

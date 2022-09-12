@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:shop/components/auth_form.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -53,13 +51,12 @@ class AuthScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
+                    child: const Text(
                       'Minha loja',
                       style: TextStyle(
                         fontSize: 45,
                         fontFamily: 'Anton',
-                        color:
-                            Theme.of(context).accentTextTheme.headline6?.color,
+                        color: Colors.white,
                       ),
                     ),
                   ),
